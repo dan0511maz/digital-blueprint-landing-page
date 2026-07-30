@@ -104,6 +104,22 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
+
+        fetch("/subscribe", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        email: emailInput.value
+    })
+})
+.then(response => response.text())
+.then(data => {
+    console.log(data);
+});
+
+
         contactSection.classList.remove("active");
         resultSection.classList.add("active");
 
